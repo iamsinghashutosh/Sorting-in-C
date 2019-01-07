@@ -1,0 +1,33 @@
+#include<stdio.h>
+void swap(int *a,int *b)
+{
+  int c;
+ c=*a;
+ *a=*b;
+ *b=c;
+}
+void selectionsort(int a[],int n)     //*sorts in increasing order*//
+{
+int min;
+for(int i=0;i<n-1;i++)
+  {
+     min=i;
+     for(int j=i+1;j<n;j++)
+     {
+       if(a[j]<a[min])          //*change the sign in order to sort in decreasing order*//
+       min=j;
+     }
+     swap(&a[i],&a[min]);
+  }
+}
+int main()
+{
+int n,a[100];
+scanf("%d",&n);
+for(int i=0;i<n;i++)
+  scanf("%d",&a[i]);
+ selectionsort(a,n);
+for(int i=0;i<n;i++)
+    printf("%d ",a[i]);
+ return 0;
+ }
