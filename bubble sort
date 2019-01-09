@@ -1,0 +1,38 @@
+#include<stdio.h>
+void swap(int *a,int *b)
+{
+  int c;
+  c=*a;
+  *a=*b;
+  *b=c;
+}
+void bubblesort(int a[],int n)
+{
+int flag;
+ for(int i=0;i<n-1;i++)
+  {
+  flag=0;
+   for(int j=0;j<n-1-i;j++)
+    {
+      if(a[j+1]<a[j])  //*increasing order*//
+       {
+        swap(&a[j],&a[j+1]);
+        flag=1;
+       }
+    }
+    if(flag==0)      //*the array is already sorted*//
+    break;
+  }
+}
+int main()
+{
+int n,a[100];
+scanf("%d",&n); 
+  for(int i=0;i<n;i++)
+  {
+   scanf("%d",&a[i]);
+  }
+bubblesort(a,n);
+ for(int i=0;i<n;i++)
+printf("%d ",a[i]);
+}
